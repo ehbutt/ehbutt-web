@@ -1,39 +1,55 @@
 function setup() {
-  createCanvas(400, 400);
-	background('green');
-
+  createCanvas(600, 600);
+	
 }
 
 function draw() {
-	//monkey
-	//body
-		fill("brown");
-  	ellipse(200, 320, 150, 250);
-	//ears
-		fill("brown");
-  	ellipse(150, 170, 50, 50);
-			fill("pink");
-  		ellipse(150, 170, 20, 20);
-		fill("brown");
-  	ellipse(250, 170, 50, 50);
-  		fill("pink");
-			ellipse(250, 170, 20, 20);
-	//face
-		fill("brown");
-  	ellipse(200, 200, 100, 150);
-	//eyes
-		fill("white");
-  	ellipse(180, 180, 30, 30);
-		ellipse(220, 180, 30, 30);
-  	fill("blue");
-		ellipse(180, 180, 5, 5);
-		ellipse(220, 180, 5, 5);
-	//mouth
-		line(185, 240, 215, 240);
-	//nose
-		fill("pink")
-  	ellipse(190, 220, 10, 10);
-		ellipse(210, 220, 10, 10);
-		line(192, 215, 194, 185);
-		line(208, 215, 206, 185);	
-}
+  background(72,187,248);
+	//city outline
+	fill(220);
+	beginShape();
+	vertex(590,200);
+	vertex(540,195);
+	vertex(480,185);
+	vertex(475,187);
+	vertex(474,215);
+	vertex(420,215);
+	vertex(350,120);
+	vertex(315,120);
+	vertex(300,140);
+	vertex(325,215);
+	vertex(325,230);
+	vertex(300,250);
+	vertex(250,250);
+	vertex(240,215);
+	vertex(160,215);
+	vertex(150,270);
+	vertex(170,270);
+	vertex(170,300);
+	vertex(200,300);
+	vertex(200,460);
+	vertex(300,490);
+	vertex(590,550);
+	vertex(590,200);
+	endShape();
+	
+	//labels
+	fill(0,0,0);
+	textSize(20);
+	textStyle(NORMAL);
+	text("Vancouver", 340,250);
+	fill(0,0,255)
+	textSize(20);
+	textStyle(ITALIC);
+	text("Strait of Georgia",100,170);
+		
+	//proportional symbols
+	var diameter = 20;
+	//circle
+	strokeWeight(2)
+	fill(255, 0, 0);
+	ellipse(250, 250 ,diameter, diameter);
+	//circle2
+	fill(0, 0, 255);
+	ellipse(275, 430 ,2 * diameter, 2 * diameter);
+			 }
