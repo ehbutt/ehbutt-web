@@ -46,7 +46,6 @@
 
 //p5.js draw
   function draw(){
-
   }
 
   // Draw the meteorites
