@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Country Size Comparison</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="leaflet/leaflet.css"/>
+  <link rel="stylesheet" href="support/example.css"/>
+  <link rel="stylesheet" href="../dist/leaflet-slider.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"/>  
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"></script>
+  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+  <script src="leaflet/leaflet.js"></script>
+  <script src="../dist/leaflet-slider.js"></script>
+  <script src="SliderControl.js"></script>
+  <script src="https://npmcdn.com/@turf/turf/turf.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+</head>
+<body>
+  
+  <div id="mapid" style="width: 600px; height: 400px;"></div>
+  <div class="slidecontainer"> 
+      Area: 
+      <input type="range" min="0" max="16500000" value="0"
+             class="slider" id="countrySlide"
+             style="padding: 5px; vertical-align: bottom">
+      <span id="slideLabel"></span>
+    </div>
+  <script> 
+    
+  
+  //create map
+      var map = L.map('mapid',
+                    { 
+                      center: [45.265637, -30.256113],
+                      zoom: 2
+                    }
+              );
+    
+  //Tile Layer
+      var topoTiles = L.tileLayer(
+                      'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+                      {
+                        maxZoom: 16,
+                        attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ'
+                      }
+                    ).addTo(map);
+            
+  //Global variables
+      var lastlayer;
+      var countryToHighlight;
+      var countryGeoJSON;
+
+    
+  //country name tooltip
+      function onEachFeature(feature, layer) {
+       if (feature.properties && feature.properties.NAME) {
+          layer.bindTooltip(feature.properties.NAME);
+        }
+      }
+    
+    
+  //style for highlighted countries
+      var myStyle = {
+        "color": "#f34949", //a nice red to highlight
+        weight: 2,
+        opacity: 0.3 //not too full and overwhelming 
+      };
+    
+    
+  //Filter countries whose area is larger than the slider value
+      function cfilter (feature, layer) {
+        if (feature.properties.AREA * 10 > countrySize) { //multiplied by 10 because the data had area in km^2 divided by 10 for some odd reason
+          return true
+          } else {
+          return false
+            }
+       }
+        
+    
+  //Load in the country layer, apply the filter, and remove old layers so 
+  // they don't pile on top of each other
+      function addCountry() {
+        if(map.hasLayer(lastlayer)) {
+         map.removeLayer(lastlayer);
+        }
+        lastlayer = L.geoJSON(countryGeoJSON, {
+          onEachFeature: onEachFeature,
+          style: myStyle,
+          filter: cfilter
+          }
+        ).addTo(map);
+      }
+  
+    
+    //Connect the add country function to the hihglight function, which is connected to the slider
+      function highlightCountry() {     
+      countryToHighlight = document
+                            .getElementById("countrySlide")
+                            .value;  
+      addCountry();
+    }
+    
+    
+  //My Data
+      $.getJSON("https://raw.githubusercontent.com/ehbutt/Lab-2/master/TM_WORLD_BORDERS_SIMPL-0.3.geojson",
+              function(myGeoJSONdata){
+              countryGeoJSON = myGeoJSONdata;
+              document.getElementById("countrySlide")
+                      .addEventListener("input", highlightCountry);
+              }
+      )
+  
+    
+  //The Slider, this was found from w3schools.com
+    var countrySlider = document.getElementById("countrySlide"); //variable used so I can refer to it
+    var output = document.getElementById("slideLabel"); //variable created so I can refer to it when making the label the slider value
+    output.innerHTML = countrySlider.value //changing label value to the slider value
+
+    var countrySize;
+    countrySlider.oninput = function() {
+      output.innerHTML = (countrySlider.value + "km^2"); //adding the label
+      countrySize = countrySlider.value;
+    }
+    
+  </script>
+
+</body>
+</html>
