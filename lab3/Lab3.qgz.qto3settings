@@ -1,0 +1,210 @@
+{
+  "CAMERA": "PERSPECTIVE",
+  "DECOR": {
+    "NorthArrow": {
+      "color": "0x666666",
+      "visible": false
+    }
+  },
+  "LAYERS": [
+    {
+      "geomType": 1,
+      "layerId": "Landslides_e0cc9a62_f53b_4a94_9c29_5274d3bcc675",
+      "name": "Landslides",
+      "properties": {
+        "checkBox_Clip": true,
+        "checkBox_ExportAttrs": false,
+        "checkBox_Visible": true,
+        "comboBox_Label": null,
+        "comboBox_ObjectType": "Sphere",
+        "comboBox_altitudeMode": "DEM_f8dd1022_e06f_4cc6_9243_69b16c9a66fd",
+        "fieldExpressionWidget_altitude": "0",
+        "labelHeightWidget": {
+          "comboData": 0,
+          "comboText": "Absolute",
+          "editText": "",
+          "type": 6
+        },
+        "radioButton_Expression": true,
+        "radioButton_IntersectingFeatures": true,
+        "styleWidget0": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 2
+        },
+        "styleWidget1": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 5
+        },
+        "styleWidget2": {
+          "comboData": null,
+          "comboText": "Expression",
+          "editText": "0.006",
+          "type": 1
+        },
+        "styleWidget3": {},
+        "styleWidget4": {},
+        "styleWidget5": {}
+      },
+      "visible": true
+    },
+    {
+      "geomType": 1,
+      "layerId": "landslides_82b87944_bde5_4989_bfd5_b805b42cb35b",
+      "name": "landslides",
+      "properties": {
+        "checkBox_Clip": true,
+        "checkBox_ExportAttrs": true,
+        "checkBox_Visible": true,
+        "comboBox_Label": null,
+        "comboBox_ObjectType": "Sphere",
+        "comboBox_altitudeMode": "DEM_f8dd1022_e06f_4cc6_9243_69b16c9a66fd",
+        "fieldExpressionWidget_altitude": "0",
+        "labelHeightWidget": {
+          "comboData": 0,
+          "comboText": "Absolute",
+          "editText": "",
+          "type": 6
+        },
+        "radioButton_Expression": true,
+        "radioButton_IntersectingFeatures": true,
+        "styleWidget0": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 2
+        },
+        "styleWidget1": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 5
+        },
+        "styleWidget2": {
+          "comboData": null,
+          "comboText": "Expression",
+          "editText": "0.006",
+          "type": 1
+        },
+        "styleWidget3": {},
+        "styleWidget4": {},
+        "styleWidget5": {}
+      },
+      "visible": false
+    },
+    {
+      "geomType": 3,
+      "layerId": "poly_3b254387_3814_4085_bbff_39cadfb46462",
+      "name": "poly",
+      "properties": {
+        "checkBox_Clip": true,
+        "checkBox_ExportAttrs": false,
+        "checkBox_Visible": true,
+        "comboBox_Label": null,
+        "comboBox_ObjectType": "Extruded",
+        "comboBox_altitudeMode": null,
+        "fieldExpressionWidget_altitude": "0",
+        "labelHeightWidget": {
+          "comboData": 0,
+          "comboText": "Absolute",
+          "editText": "\"id\"",
+          "type": 6
+        },
+        "radioButton_Expression": true,
+        "radioButton_IntersectingFeatures": true,
+        "styleWidget0": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "\"id\"",
+          "type": 2
+        },
+        "styleWidget1": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "\"id\"",
+          "type": 5
+        },
+        "styleWidget2": {
+          "comboData": null,
+          "comboText": "Expression",
+          "editText": "579.8",
+          "type": 1
+        },
+        "styleWidget3": {
+          "comboData": 0,
+          "comboText": "(No border)",
+          "editText": "",
+          "type": 7
+        },
+        "styleWidget4": {},
+        "styleWidget5": {}
+      },
+      "visible": false
+    },
+    {
+      "geomType": 0,
+      "layerId": "DEM_f8dd1022_e06f_4cc6_9243_69b16c9a66fd",
+      "name": "DEM",
+      "properties": {
+        "checkBox_Clip": true,
+        "checkBox_Frame": false,
+        "checkBox_Shading": true,
+        "checkBox_Sides": true,
+        "checkBox_Surroundings": false,
+        "checkBox_TransparentBackground": false,
+        "checkBox_Visible": true,
+        "colorButton_Color": "0x000000",
+        "comboBox_ClipLayer": "poly_3b254387_3814_4085_bbff_39cadfb46462",
+        "comboBox_TextureSize": 200,
+        "horizontalSlider_DEMSize": 2,
+        "layerImageIds": [
+          "poly_3b254387_3814_4085_bbff_39cadfb46462"
+        ],
+        "lineEdit_ImageFile": "",
+        "radioButton_MapCanvas": true,
+        "spinBox_Opacity": 100,
+        "spinBox_Roughening": 1,
+        "spinBox_Size": 3
+      },
+      "visible": true
+    },
+    {
+      "geomType": 0,
+      "layerId": "FLAT",
+      "name": "Flat Plane",
+      "properties": {
+        "checkBox_Clip": false,
+        "checkBox_Frame": false,
+        "checkBox_Shading": true,
+        "checkBox_Sides": true,
+        "checkBox_Surroundings": false,
+        "checkBox_TransparentBackground": false,
+        "checkBox_Visible": true,
+        "colorButton_Color": "0x000000",
+        "comboBox_ClipLayer": null,
+        "comboBox_TextureSize": 100,
+        "horizontalSlider_DEMSize": 2,
+        "lineEdit_ImageFile": "",
+        "radioButton_MapCanvas": true,
+        "spinBox_Opacity": 100,
+        "spinBox_Roughening": 1,
+        "spinBox_Size": 3
+      },
+      "visible": false
+    }
+  ],
+  "OutputFilename": "H:/GEOB472/Lab3\\lab3.html",
+  "SCENE": {
+    "checkBox_autoZShift": true,
+    "colorButton_Color": "0x000000",
+    "comboBox_MaterialType": 0,
+    "lineEdit_BaseSize": "80",
+    "lineEdit_zFactor": "0.0001",
+    "lineEdit_zShift": "0",
+    "radioButton_WGS84": true
+  },
+  "Template": "3DViewer.html"
+}
